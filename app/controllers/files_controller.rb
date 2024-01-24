@@ -3,6 +3,6 @@ class FilesController < ApplicationController
   end
 
   def import
-
+    binding.b
   end
 end
