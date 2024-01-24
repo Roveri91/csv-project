@@ -1,2 +1,8 @@
-<h1>Files#home</h1>
-<p>Find me in app/views/files/home.html.erb</p>
+<h1>CSV database </h1>
+
+<p style="color: red"><%= notice %></p>
+
+<%= form_with url: import_path, method: :post do |form| %>
+  <%= form.file_field :file%>
+  <%= form.button "Import" %>
+<% end %>
