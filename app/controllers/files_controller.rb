@@ -13,10 +13,14 @@ class FilesController < ApplicationController
     csv = CSV.parse(file, headers: true)
     #col_sep: ';' if the file is separeted by semicol instead of comma
     @user_hash = {}
+
     csv.each do |row|
       @user_hash[:name] = row["Name"]
       @user_hash[:age] = row["Age"]
       @user_hash[:city] = row["City"]
+
+      # create model passing the hash
+      # User.create(@user_hash)
     end
 
     redirect_to root_path, notice: "file successufully imported!"
