@@ -17,7 +17,6 @@ class FilesController < ApplicationController
       @user_hash[:name] = row["Name"]
       @user_hash[:age] = row["Age"]
       @user_hash[:city] = row["City"]
-      p @user_hash
     end
 
     redirect_to root_path, notice: "file successufully imported!"
