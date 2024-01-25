@@ -3,6 +3,6 @@
 <p style="color: red"><%= notice %></p>
 
 <%= form_with url: import_path, method: :post do |form| %>
-  <%= form.file_field :file%>
+  <%= form.file_field :file, accept: ".csv"%>
   <%= form.button "Import" %>
 <% end %>
