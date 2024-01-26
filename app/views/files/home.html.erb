@@ -2,10 +2,12 @@
 
 <p style="color: red"><%= notice %></p>
 
-<%= form_with url: import_path, method: :post do |form| %>
-  <%= form.file_field :file, accept: ".csv"%>
-  <%= form.button "Import" %>
-<% end %>
+<%#= form_with url: import_path, method: :post do |form| %>
+  <%#= form.file_field :file, accept: ".csv"%>
+  <%#= form.button "Import" %>
+<%# end %>
+
+<%= link_to "Import file", files_new_path %>
 
 <%# unless @user_hash == nil %>
   <%# @user_hash.each do |key,value| %>

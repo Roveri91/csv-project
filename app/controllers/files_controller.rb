@@ -25,4 +25,22 @@ class FilesController < ApplicationController
 
     redirect_to root_path, notice: "file successufully imported!"
   end
+
+  def new
+    # return redirect_to root_path, notice: "uploading file"
+    @csv_file = CsvFile.new
+  end
+
+  def create
+    @csv_file = CsvFile.new(csv_params[:file])
+    if @csv_file.save
+      rederect_to root_path, notice: "file uploaded successfully"
+    end
+  end
+
+  private
+
+  def csv_params
+    params.require(:file).permit(:file)
+  end
 end
