@@ -16,14 +16,12 @@
     <%# <p><%= key -> <%= value </p> %>
   <%# end %>
 <%# end %>
-
-<% @csv_files.each do |csv_file| %>
-
-  <% csv_data = csv_file.file_attachment.download %>
-  <% CSV.parse(csv_data, headers: true) do |row| %>
-    <%= row %>
+<div>
+  <% @csv_files.each do |csv_file| %>
+    <p>file:</p>
+    <% csv_data = csv_file.file_attachment.download %>
+    <% CSV.parse(csv_data, headers: true) do |row| %>
+      <%= row %>
+    <% end %>
   <% end %>
-
-
-
-<% end %>
+</div>
