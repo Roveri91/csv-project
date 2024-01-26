@@ -1,2 +1,7 @@
 <h1>CsvFiles#new</h1>
 <p>Find me in app/views/csv_files/new.html.erb</p>
+
+<%= form_with model: @csv_file do |form| %>
+  <%= form.file_field :file, accept: ".csv"%>
+  <%= form.button "Import" %>
+<% end %>
