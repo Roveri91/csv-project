@@ -1,5 +1,19 @@
-<h1>CsvFiles#index</h1>
-<p>Find me in app/views/csv_files/index.html.erb</p>
+<h1>CSV database </h1>
+
+<p style="color: red"><%= notice %></p>
+
+<%#= form_with url: import_path, method: :post do |form| %>
+  <%#= form.file_field :file, accept: ".csv"%>
+  <%#= form.button "Import" %>
+<%# end %>
+
+<%= link_to "Import file", new_csv_file_path %>
+
+<%# unless @user_hash == nil %>
+  <%# @user_hash.each do |key,value| %>
+    <%# <p><%= key -> <%= value </p> %>
+  <%# end %>
+<%# end %>
 
 
 <p><%= @csv_files.count %></p>
