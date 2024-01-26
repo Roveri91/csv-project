@@ -1,0 +1,27 @@
+<h1>CSV database </h1>
+
+<p style="color: red"><%= notice %></p>
+
+<%#= form_with url: import_path, method: :post do |form| %>
+  <%#= form.file_field :file, accept: ".csv"%>
+  <%#= form.button "Import" %>
+<%# end %>
+
+<p>File imported: <%= @csv_files.count %></p>
+
+<%= link_to "Import file", new_csv_file_path %>
+
+<%# unless @user_hash == nil %>
+  <%# @user_hash.each do |key,value| %>
+    <%# <p><%= key -> <%= value </p> %>
+  <%# end %>
+<%# end %>
+<div>
+  <% @csv_files.each do |csv_file| %>
+    <p>file:</p>
+    <% csv_data = csv_file.file_attachment.download %>
+    <% CSV.parse(csv_data, headers: true) do |row| %>
+      <%= row %>
+    <% end %>
+  <% end %>
+</div>

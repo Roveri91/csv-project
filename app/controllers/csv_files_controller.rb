@@ -1,7 +1,19 @@
-class FilesController < ApplicationController
+class CsvFilesController < ApplicationController
   require "csv"
 
-  def home
+  def index
+    @csv_files= CsvFile.all
+  end
+
+  def new
+    @csv_file = CsvFile.new
+  end
+
+  def create
+    @csv_file = CsvFile.new(csv_file_parmas)
+    if @csv_file.save
+      redirect_to csv_files_path, notice: "file saved on active storage"
+    end
   end
 
   def import
@@ -25,4 +37,12 @@ class FilesController < ApplicationController
 
     redirect_to root_path, notice: "file successufully imported!"
   end
+
+  private
+
+  def csv_file_parmas
+    params.require(:csv_file).permit(:file)
+  end
+
+
 end
