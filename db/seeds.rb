@@ -7,3 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+p "Deleting all Data"
+
+CsvFile.delete_all
+
+p "Done Delete all the data successfully"
