@@ -2,7 +2,7 @@ class CsvFilesController < ApplicationController
   require "csv"
 
   def index
-    @csv_files= CsvFile.all
+    @csv_files = CsvFile.all
   end
 
   def new
