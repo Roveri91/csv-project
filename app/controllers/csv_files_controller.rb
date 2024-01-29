@@ -12,7 +12,7 @@ class CsvFilesController < ApplicationController
   def create
     @csv_file = CsvFile.new(csv_file_parmas)
     if @csv_file.save
-      ImportCsvJob.perform_now(@csv_file.id)
+      ImportCsvJob.perform_now(@csv_file)
       redirect_to csv_files_path, notice: "file saved on active storage"
     end
   end

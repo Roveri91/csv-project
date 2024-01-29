@@ -1,11 +1,11 @@
 class ImportCsvJob < ApplicationJob
   queue_as :default
 
-  def perform(csv_id)
+  def perform(csv_file)
     # Do something later
 
-    file = CsvFile.find(csv_id).file_attachment.download
-
+    # file = CsvFile.find(csv_id).file_attachment.download
+    file = csv_file.file_attachment.download
     @user_hash = {}
 
     CSV.parse(file, headers: true) do |row|
@@ -14,6 +14,7 @@ class ImportCsvJob < ApplicationJob
       @user_hash[:city] = row["City"]
 
       User.create(@user_hash)
+
     end
       # csv = CSV.parse(file, headers: true)
       # @user_hash = {}
