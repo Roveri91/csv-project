@@ -18,7 +18,8 @@
 <%# end %>
 <div>
   <% @csv_files.each do |csv_file| %>
-    <p>file:</p>
+    <p>file: <%= csv_file.id %></p>
+    <%# <h3><%=  CsvFile.find(csv_file.id).file_attachment.download </h3> %>
     <% csv_data = csv_file.file_attachment.download %>
     <% CSV.parse(csv_data, headers: true) do |row| %>
       <%= row %>
