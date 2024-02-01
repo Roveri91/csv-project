@@ -1,9 +1,8 @@
 class ImportCsvJob < ApplicationJob
+  require 'csv'
   queue_as :default
 
   def perform(csv_file)
-    # Do something later
-
     # file = CsvFile.find(csv_id).file_attachment.download
     file = csv_file.file_attachment.download
     @user_hash = {}
@@ -13,7 +12,12 @@ class ImportCsvJob < ApplicationJob
       @user_hash[:age] = row["Age"]
       @user_hash[:city] = row["City"]
 
-      User.create(@user_hash)
+      new_user = User.create(@user_hash)
+
+      # serializing and saving User on Redis
+      # serialized_user = new_user.attributes.to_json
+      # redis = Redis.new
+      # redis.set("user:#{new_user.id}",serialized_user)
 
     end
       # csv = CSV.parse(file, headers: true)
