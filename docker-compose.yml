@@ -13,7 +13,6 @@
 #     # 無くても動くが指定しておくとコンテナ停止時にサービスが再起動してくれる
 #     # https://docs.docker.jp/v19.03/config/container/start-containers-automatically.html
 #     restart: always
-
 #   web:
 #     build: .
 #     # tmp/pids/server.pidが残ってたら `A server is already running. ~~` のエラーでrailsを起動できないので事前に消してから、`rails sever` する
@@ -35,51 +34,21 @@
 # volumes:
 #   postgres_volume:
 
-version: "3.8"
+version: '3'
 services:
   db:
     image: postgres
-    restart: always
+    volumes:
+      # - ./tmp/db:/var/lib/postgresql/data
+      - ./rmpdb:/var/lib/postgresql/data
     environment:
-     - POSTGRES_HOST_AUTH_METHOD=trust
-    volumes:
-      - db:/var/lib/postgresql/data'
-    logging:
-            driver: none
-    # ports:
-    #   - 5432:5432
-  redis:
-    image: redis:4.0-alpine
-    command: redis-server
-    volumes:
-      - redis:/data
-    ports:
-      - 6379
-    logging:
-            driver: none
+      POSTGRES_PASSWORD: password
   web:
-    build: ../
-    command: bundle exec rails s -p 3000 -e development -b '0.0.0.0'
-    environment:
-     DB_USERNAME: postgres
-     DB_PASSWORD: password
-     DB_NAME: ecs_application_db
-     DB_PORT: 5432
-     DB_HOST: db
-     RAILS_ENV: development
-     RAILS_MAX_THREADS: 5
-     REDIS_HOST: redis
-     REDIS_PORT: 6379
-     BUNDLE_PATH: /bundle
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p3000 -b '0.0.0.0'"
     volumes:
-      - ../:/rails-app
-      - bundle:/bundle
+      - .:/myapp
     ports:
       - "3000:3000"
     depends_on:
-      - "db"
-      - "redis"
-volumes:
-  db:
-  bundle:
-  redis:
+      - db
