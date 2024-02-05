@@ -37,9 +37,10 @@
 version: '3'
 services:
   db:
-    image: postgres
+    image: postgres:latest
     volumes:
-      # - /tmp/db:/var/lib/postgresql/data
+      - /myapp/
+      # - postgres_volume:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
   web:
