@@ -12,20 +12,25 @@
 <%= link_to "IMPORT FROM FILE", new_csv_file_path %>
 <hr>
 <%= link_to "IMPORT FROM API", csv_apis_index_path %>
-<hr>
+<br>
+<br>
+<br>
 
-<%# unless @user_hash == nil %>
-  <%# @user_hash.each do |key,value| %>
-    <%# <p><%= key -> <%= value </p> %>
-  <%# end %>
-<%# end %>
-<div>
-  <% @csv_files.each do |csv_file| %>
-    <p>file: <%= csv_file.id %></p>
+<% @users.each do |user| %>
+  <div style="padding: 1em">
+    <span><strong>Name: </strong><%= user.name %></span>
+    <span><strong>Age: </strong><%= user.age %></span>
+    <span><strong>City: </strong><%= user.city %></span>
+  </div>
+  <hr>
+<% end %>
+<%# <div> %>
+  <%# @csv_files.each do |csv_file| %>
+    <%# <p>file: <%= csv_file.id </p> %>
     <%# <h3><%=  CsvFile.find(csv_file.id).file_attachment.download </h3> %>
-    <% csv_data = csv_file.file_attachment.download %>
-    <% CSV.parse(csv_data, headers: true) do |row| %>
-      <%= row %>
-    <% end %>
-  <% end %>
-</div>
+    <%# csv_data = csv_file.file_attachment.download %>
+    <%# CSV.parse(csv_data, headers: true) do |row| %>
+      <%#= row %>
+    <%# end %>
+  <%# end %>
+<%# </div> %>

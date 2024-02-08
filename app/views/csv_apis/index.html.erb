@@ -1,14 +1,7 @@
 <h1>Importing form API</h1>
 
-<% @users.each do |user| %>
-  <div>
-    <span>Name: <%= user.name %></span>
-    <span>Age: <%= user.age %></span>
-    <span>City: <%= user.city %></span>
-  </div>
-  <hr>
-<% end %>
+<p>Users Imported: <%= @users.count %></p>
+<hr>
 
-<button>Send request to API</button>
-<%#= button_to 'Download', api_download_csv_apis_path, method: :post %>
 <%= button_to 'Download', csv_apis_api_download_path, method: :post %>
+<%= link_to 'Back', :root %>
