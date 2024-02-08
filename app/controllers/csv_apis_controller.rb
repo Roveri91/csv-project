@@ -3,6 +3,7 @@ class CsvApisController < ApplicationController
   # require 'open-uri'
 
   def index
+    @users = User.all
   end
 
   def api_download
