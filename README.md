@@ -65,20 +65,15 @@ docker compose up
 🔨 Built With
 ---
 + [Rails 7](https://guides.rubyonrails.org/) - Backend / Front-end
-+ [Stimulus JS](https://stimulus.hotwired.dev/) - Front-end JS
-+ [Heroku](https://www.heroku.com/) - Deployment
++ [Sidekiq](https://sidekiq.org/) - Background Job Processor
++ [Redis](https://redis.io/) - Database
 + [PostgreSQL](https://www.postgresql.org/) - Database
-+ [Bootstrap](https://getbootstrap.com/) — Styling
-+ [Figma](https://www.figma.com/ja/) — Prototyping
++ [Docker](https://www.docker.com/) — Development Tools
 
 
 🗿 Team Members
 ---
 * [Simone Roveri](https://www.linkedin.com/in/simone-roveri/),
-* [Johnny Smith](https://www.linkedin.com/in/jonathan-smith-046007138/),
-* [Giulia Menin](https://www.linkedin.com/in/giuliamenin/),
-* [Tenny Ma](https://www.linkedin.com/in/tennyma/).
-
 
 💅 Contributing
 ---
