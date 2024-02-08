@@ -9,7 +9,10 @@
 
 <p>File imported: <%= @csv_files.count %></p>
 
-<%= link_to "Import file", new_csv_file_path %>
+<%= link_to "IMPORT FROM FILE", new_csv_file_path %>
+<hr>
+<%= link_to "IMPORT FROM API", csv_apis_index_path %>
+<hr>
 
 <%# unless @user_hash == nil %>
   <%# @user_hash.each do |key,value| %>
