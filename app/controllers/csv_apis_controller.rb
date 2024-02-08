@@ -1,9 +1,8 @@
 class CsvApisController < ApplicationController
-  require 'json'
-  require 'open-uri'
+  # require 'json'
+  # require 'open-uri'
 
   def index
-
   end
 
   def api_download
