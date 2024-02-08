@@ -10,6 +10,8 @@ class CsvApisController < ApplicationController
 
     url  = "http://localhost:4000/users"
 
+    ApiParseJob.perform_async(url)
+
     # file_serialized = URI.open(url).read
     # users = JSON.parse(file_serialized)
 
