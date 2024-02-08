@@ -12,9 +12,9 @@ Welcome to the repository for CSV-Project! This project was developed as a task 
 ---
 ![Screenshot 2024-02-08 180337](https://github.com/Roveri91/csv-project/assets/105217392/3b932567-ea47-494e-9a0d-5f8a0a2e22e2)
 ![Screenshot 2024-02-08 180440](https://github.com/Roveri91/csv-project/assets/105217392/97ba7e13-5dcf-4ef3-be4c-63ed0fe4046b)
-![Screenshot 2024-02-08 180719](https://github.com/Roveri91/csv-project/assets/105217392/54e792da-fb9f-4253-835b-4a41d8ef8410)
-![Screenshot 2024-02-08 180605](https://github.com/Roveri91/csv-project/assets/105217392/77e57b6d-45a2-4a4a-aea3-0d0a7db2e08b)
 ![Screenshot 2024-02-08 180418](https://github.com/Roveri91/csv-project/assets/105217392/cc6038e7-8215-4546-9203-7368cee9dcb2)
+![Screenshot 2024-02-08 180605](https://github.com/Roveri91/csv-project/assets/105217392/77e57b6d-45a2-4a4a-aea3-0d0a7db2e08b)
+![Screenshot 2024-02-08 180719](https://github.com/Roveri91/csv-project/assets/105217392/54e792da-fb9f-4253-835b-4a41d8ef8410)
 
 ---
 
