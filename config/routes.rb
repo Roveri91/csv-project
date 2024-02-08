@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # post "/file", to: "files#create"
 
   resources :csv_files, only: [:index, :new, :create]
+  resources :csv_api, only: [:index]
   root "csv_files#index"
 
 

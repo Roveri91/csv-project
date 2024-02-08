@@ -16,14 +16,19 @@ default: &default
   adapter: postgresql
   encoding: unicode
 
+  pool: 5
+
+  host: localhost
+  username: spike
+  password: hello
+
   # host: postgresql
   # username: postgres
   # password: postgres
 
-  # # host: db
+  # host: db
   # username: postgres
   # password: password
-  pool: 5
 
 development:
   <<: *default
