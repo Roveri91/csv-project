@@ -3,6 +3,7 @@ class CsvApisController < ApplicationController
   require 'open-uri'
 
   def index
+    @users = User.all
   end
 
   def api_download
@@ -10,14 +11,12 @@ class CsvApisController < ApplicationController
     url  = "http://localhost:4000/users"
 
     file_serialized = URI.open(url).read
-    user = JSON.parse(file_serialized)
+    users = JSON.parse(file_serialized)
 
-    # CSV.read(file_serialized)
+    users.each do |user|
+      User.create(user)
+    end
 
-    # CSV.foreach(file_serialized, headers: :first_row) do |row|
-    #   puts "#{row['name']}"
-    # end
-
-    redirect_to :root, notice: user
+    redirect_to :root, notice: "Successfully Imported from #{url}"
   end
 end
