@@ -8,9 +8,9 @@ class ImportCsvJob < ApplicationJob
     @user_hash = {}
 
     CSV.parse(file, headers: true) do |row|
-      @user_hash[:name] = row["Name"]
-      @user_hash[:age] = row["Age"]
-      @user_hash[:city] = row["City"]
+      @user_hash[:name] = row['Name']
+      @user_hash[:age] = row['Age']
+      @user_hash[:city] = row['City']
 
       new_user = User.create(@user_hash)
 
