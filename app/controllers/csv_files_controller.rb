@@ -23,4 +23,5 @@ class CsvFilesController < ApplicationController
   def csv_file_parmas
     params.require(:csv_file).permit(:file)
   end
+
 end
