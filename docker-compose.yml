@@ -47,6 +47,27 @@ services:
       # POSTGRES_DB: Csv_project_db
     # ports:
     #   - 5423:5432
+
+  redis:
+    image: redis:4.0-alpine
+    command: redis-server
+    volumes:
+      - redis-data
+    ports:
+      - "6379:6379"
+
+  sidekiq:
+    build: ../
+    command: bundle exec sidekiq
+    volumes:
+      - ../.:/rails-app
+    environment:
+      - RAILS_ENV: development
+      - REDIS_HOST: redis
+      - REDIS_PORT: 6379
+    depends_on:
+      - "redis"
+
   web:
     build: .
     volumes:
@@ -55,5 +76,7 @@ services:
       - "3000:3000"
     depends_on:
       - db
+      - redis
 volumes:
   postgres:
+  redis:
