@@ -52,9 +52,9 @@ services:
     image: redis:4.0-alpine
     command: redis-server
     volumes:
-      - redis-server
+      - redis-data
     ports:
-      - 6379:6379
+      - "6379:6379"
 
   sidekiq:
     build: ../
