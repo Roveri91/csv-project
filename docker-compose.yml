@@ -57,7 +57,16 @@ services:
       - 6379:6379
 
   sidekiq:
-    image: imageName
+    build: ../
+    command: bundle exec sidekiq
+    volumes:
+      - ../.:/rails-app
+    environment:
+      - RAILS_ENV: development
+      - REDIS_HOST: redis
+      - REDIS_PORT: 6379
+    depends_on:
+      - "redis"
 
   web:
     build: .
