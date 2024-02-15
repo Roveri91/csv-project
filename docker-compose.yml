@@ -52,19 +52,19 @@ services:
     image: redis:4.0-alpine
     command: redis-server
     volumes:
-      - redis-data
+      - redis-data:/data
     ports:
       - "6379:6379"
 
   sidekiq:
-    build: ../
+    build: .
     command: bundle exec sidekiq
     volumes:
       - ../.:/rails-app
     environment:
-      - RAILS_ENV: development
-      - REDIS_HOST: redis
-      - REDIS_PORT: 6379
+      - RAILS_ENV=development
+      - REDIS_HOST="redis"
+      - REDIS_PORT="6379"
     depends_on:
       - "redis"
 
@@ -79,4 +79,4 @@ services:
       - redis
 volumes:
   postgres:
-  redis:
+  redis-data:
