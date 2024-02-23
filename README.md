@@ -1,5 +1,5 @@
 
-㊗️ CSV-Project
+💾 CSV-Project
 ---
 
 Upload CSV and JSON files
