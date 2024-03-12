@@ -16,19 +16,11 @@ default: &default
   adapter: postgresql
   encoding: unicode
 
-  pool: 5
+  host: <%= ENV["DB_HOST"] || "" %>
+  password: <%= ENV["POSTGRES_PASSWORD"] || "" %>
+  username: <%= ENV["POSTGRES_USERNAME"] || "" %>
 
-  host: localhost
-  username: spike
-  password: hello
-
-  # host: postgresql
-  # username: postgres
-  # password: postgres
-
-  # host: db
-  # username: postgres
-  # password: password
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
